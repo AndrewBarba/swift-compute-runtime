@@ -66,3 +66,12 @@ extension Array {
         }
     }
 }
+
+extension Task where Success == Never, Failure == Never {
+
+    internal static func sleepForever() async throws {
+        while true {
+            try await Task.sleep(nanoseconds: 1_000_000_000)
+        }
+    }
+}
