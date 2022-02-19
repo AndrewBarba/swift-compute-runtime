@@ -5,7 +5,14 @@
 //  Created by Andrew Barba on 1/12/22.
 //
 
-import Foundation
+#if canImport(Darwin)
+import Darwin
+#elseif canImport(Glibc)
+import Glibc
+#elseif canImport(WASILibc)
+import WASILibc
+#endif
+
 
 @propertyWrapper public struct EnvironmentVariable<Value: Sendable>: Sendable {
     
