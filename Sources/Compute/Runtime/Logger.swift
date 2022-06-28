@@ -16,6 +16,7 @@ public struct Logger: Sendable {
         var handle: EndpointHandle = 0
         try wasi(fastly_log__endpoint_get(name, name.utf8.count, &handle))
         self.handle = handle
+        print("[logger] handle:", handle)
     }
     
     @discardableResult
@@ -23,6 +24,7 @@ public struct Logger: Sendable {
         let message = messages.joined(separator: " ")
         var result = 0
         try wasi(fastly_log__write(handle, message, message.utf8.count, &result))
+        print("[logger] write:", result)
         return result
     }
 
