@@ -47,14 +47,14 @@ int fastly_geo__lookup(const uint8_t* ip, size_t ip_len, uint8_t* value, size_t 
 
 /* FASTLY_KV */
 
-//WASM_IMPORT("fastly_kv", "open")
-//int fastly_kv__open(const char* name, size_t name_len, WasiHandle* handle);
+WASM_IMPORT("fastly_kv", "open")
+int fastly_kv__open(const char* name, size_t name_len, WasiHandle* handle);
 
-//WASM_IMPORT("fastly_kv", "lookup")
-//int fastly_kv__lookup(WasiHandle handle, const char* key, size_t key_len, uint32_t* body_handle);
+WASM_IMPORT("fastly_kv", "lookup")
+int fastly_kv__lookup(WasiHandle handle, const char* key, size_t key_len, uint32_t* body_handle);
 
-//WASM_IMPORT("fastly_kv", "insert")
-//int fastly_kv__insert(WasiHandle handle, const char* key, size_t key_len, uint32_t body_handle, uint32_t max_age, uint32_t* inserted);
+WASM_IMPORT("fastly_kv", "insert")
+int fastly_kv__insert(WasiHandle handle, const char* key, size_t key_len, uint32_t body_handle, uint32_t max_age, uint32_t* inserted);
 
 /* FASTLY_HTTP_BODY */
 
